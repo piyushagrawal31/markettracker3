@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Buyback IPO Stock Market</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Navigation Drawer Strings Start -->
+    <string name="emailId">care.pstechnology@gmail.com</string>
+    <string name="title_feedback">Feedback</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_about">About</string>
+    <string name="send_to">Send To ...</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec condimentum ante, quis mattis mi. Proin ut rhoncus libero, ac euismod neque. Ut suscipit, enim a facilisis consequat, orci lacus venenatis orci, at ultricies orci nulla sed ex. In condimentum viverra velit, eget feugiat libero imperdiet vel. Aenean pretium, lectus vitae bibendum bibendum, diam turpis convallis eros, quis tristique leo sapien at ipsum. Praesent eu odio id nulla lobortis auctor. Donec eget dolor eget nisl euismod commodo vel a lacus. Quisque ut justo vitae urna pharetra accumsan. Etiam dignissim neque iaculis mauris viverra, blandit rhoncus odio porttitor. Phasellus nibh arcu.</string>
+    <string name="heading_recent">Current / Upcoming</string>
+    <string name="heading_past">Past</string>
+    <string name="heading_news">News</string>
+    <string name="heading_tracker">tracker</string>
+    <string name="issue_date">Issue Open</string>
+    <string name="offer_price">Issue Price</string>
+    <string name="face_value">Face Value</string>
+    <string name="market_lot">Market Log</string>
+    <string name="lbl_issue_price">Issue Price :</string>
+    <string name="lbl_issue_date">Issue Date :</string>
+    <string name="lbl_facevalue">Face Value :</string>
+    <string name="lbl_issue_size">Issue Size :</string>
+    <string name="lbl_marketlot">Market Lot :</string>
+    <string name="ipo">IPOs</string>
+    <string name="buyback">Buybacks</string>
+    <string name="bonus">Bonus</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <!-- Navigation Drawer Strings End -->
+
+</resources>
