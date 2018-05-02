@@ -1,4 +1,4 @@
-package com.pstech.stocks.buybackipostockmarket.model;
+package com.pstech.stocks.markettracker.model;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.pstech.stocks.buybackipostockmarket;
+package com.pstech.stocks.markettracker;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,11 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.pstech.stocks.buybackipostockmarket.fragments.CurrentUpcomingFragment;
-import com.pstech.stocks.buybackipostockmarket.fragments.NewsFragment;
-import com.pstech.stocks.buybackipostockmarket.fragments.PastFragment;
-import com.pstech.stocks.buybackipostockmarket.fragments.TrackerFragment;
-import com.pstech.stocks.buybackipostockmarket.utils.AppConstants;
+import com.pstech.stocks.markettracker.fragments.CurrentUpcomingFragment;
+import com.pstech.stocks.markettracker.fragments.NewsFragment;
+import com.pstech.stocks.markettracker.fragments.PastFragment;
+import com.pstech.stocks.markettracker.fragments.TrackerFragment;
+import com.pstech.stocks.markettracker.utils.AppConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,7 +44,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.app_name);
+//        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setTitle("IPO Stock Market");
 
         initDrawer();
 
@@ -85,12 +86,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, NewPostActivity.class));
-            }
-        });
+//        findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+//            }
+//        });
     }
 
     private void initDrawer() {

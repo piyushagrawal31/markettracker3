@@ -1,4 +1,4 @@
-package com.pstech.stocks.buybackipostockmarket.fragments;
+package com.pstech.stocks.markettracker.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,11 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
-import com.pstech.stocks.buybackipostockmarket.IpoScripDetailActivity;
-import com.pstech.stocks.buybackipostockmarket.R;
-import com.pstech.stocks.buybackipostockmarket.model.IpoScrip;
-import com.pstech.stocks.buybackipostockmarket.utils.AppConstants;
-import com.pstech.stocks.buybackipostockmarket.viewholder.PostViewHolder;
+import com.pstech.stocks.markettracker.R;
+import com.pstech.stocks.markettracker.IpoScripDetailActivity;
+import com.pstech.stocks.markettracker.model.IpoScrip;
+import com.pstech.stocks.markettracker.utils.AppConstants;
+import com.pstech.stocks.markettracker.viewholder.PostViewHolder;
 
 public abstract class ScripListFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.pstech.stocks.buybackipostockmarket.model;
+package com.pstech.stocks.markettracker.model;
 
 import com.google.firebase.database.Exclude;
 
@@ -31,6 +31,7 @@ public class IpoScrip {
     public int discount;
     public int starCount = 0;
     public String uid;
+    public String logourl;
     public Map<String, Boolean> stars = new HashMap<>();
 
     public IpoScrip() {
@@ -133,4 +134,11 @@ public class IpoScrip {
         return result;
     }
 
+    public String getLogourl() {
+        return logourl;
+    }
+
+    public void setLogourl(String logourl) {
+        this.logourl = logourl;
+    }
 }

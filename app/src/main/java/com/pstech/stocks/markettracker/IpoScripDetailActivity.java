@@ -1,6 +1,8 @@
-package com.pstech.stocks.buybackipostockmarket;
+package com.pstech.stocks.markettracker;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -10,27 +12,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.pstech.stocks.buybackipostockmarket.model.Comment;
-import com.pstech.stocks.buybackipostockmarket.model.IpoScrip;
-import com.pstech.stocks.buybackipostockmarket.utils.AppConstants;
+import com.pstech.stocks.markettracker.model.Comment;
+import com.pstech.stocks.markettracker.model.IpoScrip;
+import com.pstech.stocks.markettracker.utils.AppConstants;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.pstech.stocks.buybackipostockmarket.utils.AppConstants.makeRange;
-import static com.pstech.stocks.buybackipostockmarket.utils.AppConstants.processString;
+import static com.pstech.stocks.markettracker.utils.AppConstants.makeRange;
+import static com.pstech.stocks.markettracker.utils.AppConstants.processString;
 
 public class IpoScripDetailActivity extends BaseActivity implements View.OnClickListener {
 
@@ -48,9 +53,10 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
 //    private TextView mTitleView;
 //    private TextView mBodyView;
 
+    @BindView(R.id.company_photo) ImageView companyPhotoView;
     @BindView(R.id.company_name) TextView companyNameView;
 
-//    @BindView(R.id.issue_size) TextView issueSizeView;
+    @BindView(R.id.txt_issuesize) TextView issueSizeView;
 //    @BindView(R.id.issue_type) TextView issueTypeView;
     @BindView(R.id.txt_issuedate) TextView issueDateView;
     @BindView(R.id.txt_issueprice) TextView offerPriceView;
@@ -60,7 +66,7 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
 
     private EditText mCommentField;
     private Button mCommentButton;
-    private RecyclerView mCommentsRecycler;
+//    private RecyclerView mCommentsRecycler;
     @BindView(R.id.toolbar) Toolbar toolbar;
 
     @Override
@@ -89,9 +95,9 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
         // Initialize Views
 //        mTitleView = findViewById(R.id.post_title);
 //        mBodyView = findViewById(R.id.post_body);
-        mCommentField = findViewById(R.id.field_comment_text);
-        mCommentButton = findViewById(R.id.button_post_comment);
-        mCommentsRecycler = findViewById(R.id.recycler_comments);
+//        mCommentField = findViewById(R.id.field_comment_text);
+//        mCommentButton = findViewById(R.id.button_post_comment);
+//        mCommentsRecycler = findViewById(R.id.recycler_comments);
 
 //        mCommentButton.setOnClickListener(this);
 //        mCommentsRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -113,7 +119,7 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
 //                starView.setOnClickListener(starClickListener);
 
                 companyNameView.setText(processString(post.getCompanyName()));
-//                issueSizeView.setText(processString(post.getIssueSize()));
+                issueSizeView.setText(processString(post.getIssueSize()));
 //                issueTypeView.setText(processString(post.getIssueType().toString()));
                 issueDateView.setText(makeRange(post.getStartDate(), post.getEndDate()));
                 offerPriceView.setText(makeRange(String.valueOf(post.getMinPrice()),
@@ -122,9 +128,22 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
                 marketLotView.setText(String.valueOf(post.getMarketLot()));
                 companyDetail.setText(processString(post.getCompanyDetail()));
 
+                loadImage(post.getLogourl());
                 getSupportActionBar().setTitle(processString(post.getCompanyName()));
 
                 // [END_EXCLUDE]
+            }
+
+            private void loadImage(String imagePath) {
+                    if (!AppConstants.isEmpty(imagePath)) {
+                        try {
+                            Glide.with(getApplicationContext())
+                                    .load(imagePath)
+                                    .into(companyPhotoView);
+                        } catch (Exception e) {
+
+                        }
+                    }
             }
 
             @Override
@@ -167,9 +186,9 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.button_post_comment) {
-            postComment();
-        }
+//        if (i == R.id.button_post_comment) {
+//            postComment();
+//        }
     }
 
     private void postComment() {

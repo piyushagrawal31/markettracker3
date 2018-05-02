@@ -1,4 +1,4 @@
-package com.pstech.stocks.buybackipostockmarket;
+package com.pstech.stocks.markettracker;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,7 +14,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.pstech.stocks.buybackipostockmarket.utils.AppConstants;
+import com.pstech.stocks.markettracker.utils.AppConstants;
+import com.pstech.stocks.markettracker.viewholder.AboutUsActivity;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -103,22 +104,24 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
             }
         } else if (id == R.id.nav_feedback) {
-
-            String emailId = getResources().getString(R.string.emailId);
-            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto", emailId, null));
-            String[] addresses = {emailId};
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject: " + getPackageName());
-            emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, addresses); // String[] addresses
-            startActivity(Intent.createChooser(emailIntent, "Send email..."));
-        } else if (id == R.id.nav_send) {
-
+            sendEmail();
         } else if (id == R.id.nav_about) {
-
+            Intent aboutUsIntent = new Intent(BaseActivity.this, AboutUsActivity.class);
+            startActivity(aboutUsIntent);
         }
 
         return true;
+    }
+
+    public void sendEmail() {
+        String emailId = getResources().getString(R.string.emailId);
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto", emailId, null));
+        String[] addresses = {emailId};
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject: " + getPackageName());
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, addresses); // String[] addresses
+        startActivity(Intent.createChooser(emailIntent, "Send email..."));
     }
 
 }

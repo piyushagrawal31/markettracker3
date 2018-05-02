@@ -1,4 +1,4 @@
-package com.pstech.stocks.buybackipostockmarket;
+package com.pstech.stocks.markettracker;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.pstech.stocks.buybackipostockmarket.utils.AppConstants;
+import com.pstech.stocks.markettracker.utils.AppConstants;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.pstech.stocks.buybackipostockmarket.model.IpoScrip;
-import com.pstech.stocks.buybackipostockmarket.model.User;
+import com.pstech.stocks.markettracker.model.IpoScrip;
+import com.pstech.stocks.markettracker.model.User;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -33,6 +33,7 @@
     <string name="buyback">Buybacks</string>
     <string name="bonus">Bonus</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_about_us">AboutUsActivity</string>
     <!-- Navigation Drawer Strings End -->
 
 </resources>

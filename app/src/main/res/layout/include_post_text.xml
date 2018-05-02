@@ -11,6 +11,7 @@
             android:layout_height="fill_parent" android:text="@string/lbl_issue_size" />
 
         <TextView android:id="@+id/txt_issuesize" android:textSize="@dimen/secondary_text"
+            android:layout_marginLeft="2.0dp"
             android:textColor="@color/SECONDARY_TEXT" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     </LinearLayout>
 
@@ -20,6 +21,7 @@
             android:layout_height="fill_parent" android:text="@string/lbl_issue_date" />
 
         <TextView android:id="@+id/txt_issuedate" android:textSize="@dimen/secondary_text"
+            android:layout_marginLeft="2.0dp"
             android:textColor="@color/SECONDARY_TEXT" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     </LinearLayout>
 
@@ -29,6 +31,7 @@
             android:layout_height="fill_parent" android:text="@string/lbl_issue_price" />
 
         <TextView android:id="@+id/txt_issueprice" android:textSize="@dimen/secondary_text"
+            android:layout_marginLeft="2.0dp"
             android:textColor="@color/SECONDARY_TEXT" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     </LinearLayout>
 
@@ -38,6 +41,7 @@
             android:layout_height="fill_parent" android:text="@string/lbl_facevalue" />
 
         <TextView android:id="@+id/txt_facevalue" android:textSize="@dimen/secondary_text"
+            android:layout_marginLeft="2.0dp"
             android:textColor="@color/SECONDARY_TEXT" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     </LinearLayout>
 
@@ -47,6 +51,7 @@
             android:layout_height="fill_parent" android:text="@string/lbl_marketlot" />
 
         <TextView android:id="@+id/txt_marketlot" android:textSize="@dimen/secondary_text"
+            android:layout_marginLeft="2.0dp"
             android:textColor="@color/SECONDARY_TEXT" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     </LinearLayout>
 
