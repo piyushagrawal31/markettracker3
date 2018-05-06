@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -126,24 +127,13 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
                         String.valueOf(post.getMaxPrice())));
                 faceValueView.setText(String.valueOf(post.getFaceValue()));
                 marketLotView.setText(String.valueOf(post.getMarketLot()));
-                companyDetail.setText(processString(post.getCompanyDetail()));
+                companyDetail.setText(Html.fromHtml(processString(post.getCompanyDetail())));
 
-                loadImage(post.getLogourl());
+                AppConstants.loadImage(getApplicationContext(), companyPhotoView,
+                        post.getLogourl());
                 getSupportActionBar().setTitle(processString(post.getCompanyName()));
 
                 // [END_EXCLUDE]
-            }
-
-            private void loadImage(String imagePath) {
-                    if (!AppConstants.isEmpty(imagePath)) {
-                        try {
-                            Glide.with(getApplicationContext())
-                                    .load(imagePath)
-                                    .into(companyPhotoView);
-                        } catch (Exception e) {
-
-                        }
-                    }
             }
 
             @Override

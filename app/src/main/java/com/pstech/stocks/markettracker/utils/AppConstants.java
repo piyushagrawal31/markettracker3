@@ -1,5 +1,10 @@
 package com.pstech.stocks.markettracker.utils;
 
+import android.content.Context;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -46,6 +51,14 @@ public class AppConstants {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
         Date date = new Date();
         return formatter.format(date);
+    }
+
+    public static void loadImage(Context context, ImageView imageView, String imagePath) {
+        if (!AppConstants.isEmpty(imagePath)) {
+            Glide.with(context)
+                    .load(imagePath)
+                    .into(imageView);
+        }
     }
 
 

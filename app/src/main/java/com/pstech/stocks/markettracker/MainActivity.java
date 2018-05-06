@@ -1,7 +1,6 @@
 package com.pstech.stocks.markettracker;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -10,18 +9,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.pstech.stocks.markettracker.fragments.CurrentUpcomingFragment;
 import com.pstech.stocks.markettracker.fragments.NewsFragment;
 import com.pstech.stocks.markettracker.fragments.PastFragment;
 import com.pstech.stocks.markettracker.fragments.TrackerFragment;
-import com.pstech.stocks.markettracker.utils.AppConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +39,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setContentView(R.layout.main_activity);
         ButterKnife.bind(this);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setTitle(R.string.app_name);
         getSupportActionBar().setTitle("IPO Stock Market");

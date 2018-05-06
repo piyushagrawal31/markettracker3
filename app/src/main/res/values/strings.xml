@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Buyback IPO Stock Market</string>
+    <string name="app_name">IPO Buyback Market Tracker</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_main">MainActivity</string>
@@ -32,7 +32,6 @@
     <string name="ipo">IPOs</string>
     <string name="buyback">Buybacks</string>
     <string name="bonus">Bonus</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_about_us">AboutUsActivity</string>
     <!-- Navigation Drawer Strings End -->
 

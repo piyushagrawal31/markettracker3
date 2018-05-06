@@ -1,16 +1,8 @@
 package com.pstech.stocks.markettracker.viewholder;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.ActionProvider;
-import android.view.ContextMenu;
-import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 
 import com.pstech.stocks.markettracker.BaseActivity;

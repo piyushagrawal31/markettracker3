@@ -57,19 +57,8 @@ public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnCl
                 String.valueOf(post.getMaxPrice())));
         faceValueView.setText(String.valueOf(post.getFaceValue()));
         marketLotView.setText(processInt(post.getMarketLot()));
-        loadImage(post.getLogourl());
+        AppConstants.loadImage(context, companyPhotoView, post.getLogourl());
 
-    }
-    private void loadImage(String imagePath) {
-        if (!AppConstants.isEmpty(imagePath)) {
-            try {
-                Glide.with(context)
-                        .load(imagePath)
-                        .into(companyPhotoView);
-            } catch (Exception e) {
-
-            }
-        }
     }
 
     @Override
