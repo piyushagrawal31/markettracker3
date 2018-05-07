@@ -1,4 +1,4 @@
-package com.pstech.stocks.markettracker.fragments;
+package com.pstech.stocks.markettracker.fragments.buybackfragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,25 +20,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
+import com.pstech.stocks.markettracker.BuybackDetailActivity;
 import com.pstech.stocks.markettracker.R;
-import com.pstech.stocks.markettracker.IpoScripDetailActivity;
-import com.pstech.stocks.markettracker.model.IpoScrip;
+import com.pstech.stocks.markettracker.model.BuybackScrip;
 import com.pstech.stocks.markettracker.utils.AppConstants;
-import com.pstech.stocks.markettracker.viewholder.PostViewHolder;
+import com.pstech.stocks.markettracker.viewholder.BuybackScripViewHolder;
 
-public abstract class ScripListFragment extends Fragment {
+public abstract class ScripListBBFragment extends Fragment {
 
-    private static final String TAG = "ScripListFragment";
+    private static final String TAG = "ScripListBBFragment";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
     // [END define_database_reference]
 
-    private FirebaseRecyclerAdapter<IpoScrip, PostViewHolder> mAdapter;
+    private FirebaseRecyclerAdapter<BuybackScrip, BuybackScripViewHolder> mAdapter;
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
 
-    public ScripListFragment() {}
+    public ScripListBBFragment() {}
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
@@ -69,21 +69,21 @@ public abstract class ScripListFragment extends Fragment {
         // Set up FirebaseRecyclerAdapter with the Query
         Query postsQuery = getQuery(mDatabase);
 
-        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<IpoScrip>()
-                .setQuery(postsQuery, IpoScrip.class)
+        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<BuybackScrip>()
+                .setQuery(postsQuery, BuybackScrip.class)
                 .build();
 
-        mAdapter = new FirebaseRecyclerAdapter<IpoScrip, PostViewHolder>(options) {
+        mAdapter = new FirebaseRecyclerAdapter<BuybackScrip, BuybackScripViewHolder>(options) {
 
             @Override
-            public PostViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+            public BuybackScripViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-                return new PostViewHolder(inflater.inflate(R.layout.item_post, viewGroup, false),
+                return new BuybackScripViewHolder(inflater.inflate(R.layout.item_post, viewGroup, false),
                         viewGroup.getContext());
             }
 
             @Override
-            protected void onBindViewHolder(PostViewHolder viewHolder, int position, final IpoScrip model) {
+            protected void onBindViewHolder(BuybackScripViewHolder viewHolder, int position, final BuybackScrip model) {
                 final DatabaseReference postRef = getRef(position);
 
                 // Set click listener for the whole post view
@@ -91,9 +91,9 @@ public abstract class ScripListFragment extends Fragment {
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Launch IpoScripDetailActivity
-                        Intent intent = new Intent(getActivity(), IpoScripDetailActivity.class);
-                        intent.putExtra(IpoScripDetailActivity.EXTRA_POST_KEY, postKey);
+                        // Launch BuybackDetailActivity
+                        Intent intent = new Intent(getActivity(), BuybackDetailActivity.class);
+                        intent.putExtra(BuybackDetailActivity.EXTRA_POST_KEY, postKey);
                         startActivity(intent);
                     }
                 });
@@ -110,7 +110,7 @@ public abstract class ScripListFragment extends Fragment {
                     @Override
                     public void onClick(View starView) {
                         // Need to write to both places the post is stored
-                        DatabaseReference globalPostRef = mDatabase.child(AppConstants.IPO_SCRIP).child(postRef.getKey());
+                        DatabaseReference globalPostRef = mDatabase.child(AppConstants.BUYBACK_SCRIP).child(postRef.getKey());
 //                        DatabaseReference userPostRef = mDatabase.child("user-posts").child(model.uid).child(postRef.getKey());
 
                         // Run two transactions
@@ -128,7 +128,7 @@ public abstract class ScripListFragment extends Fragment {
         postRef.runTransaction(new Transaction.Handler() {
             @Override
             public Transaction.Result doTransaction(MutableData mutableData) {
-                IpoScrip p = mutableData.getValue(IpoScrip.class);
+                BuybackScrip p = mutableData.getValue(BuybackScrip.class);
                 if (p == null) {
                     return Transaction.success(mutableData);
                 }

@@ -18,7 +18,7 @@ import com.pstech.stocks.markettracker.utils.AppConstants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class IpoScripViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     @BindView(R.id.company_photo) ImageView companyPhotoView;
     @BindView(R.id.company_name) TextView companyNameView;
@@ -35,7 +35,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     @BindView(R.id.btn_moreinfo) Button btnMoreInfo;
     private Context context;
 
-    public PostViewHolder(View itemView, Context context) {
+    public IpoScripViewHolder(View itemView, Context context) {
         super(itemView);
         ButterKnife.bind(this, itemView);
 

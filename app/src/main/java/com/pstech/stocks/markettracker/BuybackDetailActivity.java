@@ -1,8 +1,6 @@
 package com.pstech.stocks.markettracker;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -17,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +25,6 @@ import com.pstech.stocks.markettracker.model.Comment;
 import com.pstech.stocks.markettracker.model.IpoScrip;
 import com.pstech.stocks.markettracker.utils.AppConstants;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +34,7 @@ import butterknife.ButterKnife;
 import static com.pstech.stocks.markettracker.utils.AppConstants.makeRange;
 import static com.pstech.stocks.markettracker.utils.AppConstants.processString;
 
-public class IpoScripDetailActivity extends BaseActivity implements View.OnClickListener {
+public class BuybackDetailActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "BuybackDetailActivity";
 
@@ -141,7 +137,7 @@ public class IpoScripDetailActivity extends BaseActivity implements View.OnClick
                 // Getting Post failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
                 // [START_EXCLUDE]
-                Toast.makeText(IpoScripDetailActivity.this, "Failed to load post.",
+                Toast.makeText(BuybackDetailActivity.this, "Failed to load post.",
                         Toast.LENGTH_SHORT).show();
                 // [END_EXCLUDE]
             }

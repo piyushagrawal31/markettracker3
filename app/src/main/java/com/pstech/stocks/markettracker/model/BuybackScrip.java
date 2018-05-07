@@ -1,6 +1,8 @@
 package com.pstech.stocks.markettracker.model;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by pagrawal on 30-04-2018.
@@ -36,5 +38,12 @@ public class BuybackScrip {
     public String offerLetterLink;
     public String postBBCorpAnnLink;
     public String shareholdingPatternLink;
+
+    public Map<String, Boolean> stars = new HashMap<>();
+    public int starCount = 0;
+
+    public BuybackScrip() {
+
+    }
 
 }
